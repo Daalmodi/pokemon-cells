@@ -421,7 +421,7 @@ class LoginPage extends intl(cellsPage(LitElement)) {
       window.IntlMsg.lang = lang;
     }, 0);
 
-    this.navigate('pokemon');
+    this.navigate('dashboard');
   }
 }
 
