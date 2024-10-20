@@ -2,8 +2,10 @@ import { CellsPageMixin as cellsPage } from '@cells/cells-page-mixin';
 import { html, LitElement } from 'lit-element';
 import { BbvaCoreIntlMixin as intl } from '@bbva-web-components/bbva-core-intl-mixin';
 
+import '../../elements/UI/simple-greeting.js';
 
 import '@cells-demo/demo-web-template/demo-web-template.js';
+
 
 class PokemonPage extends intl(cellsPage(LitElement)) {
   static get is() {
@@ -40,7 +42,7 @@ class PokemonPage extends intl(cellsPage(LitElement)) {
         <ul>
           ${this.pokemones.map((pokemon) => html`<li>${pokemon.name}</li>`)}
         </ul>
-
+         <simple-greeting></simple-greeting> 
         
       </div">
 
