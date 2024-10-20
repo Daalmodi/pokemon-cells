@@ -57,6 +57,7 @@
     "@cells-demo/demo-web-container": "^1.0.0",
     "@cells-demo/demo-web-template": "^1.0.0",
     "@cells/cells-bridge": "^3.17.0",
+    "@cells/cells-page": "^1.6.0",
     "@cells/cells-page-mixin": "^1.0.0",
     "@open-wc/lit-helpers": "^0.3.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
