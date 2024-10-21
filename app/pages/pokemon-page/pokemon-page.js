@@ -3,7 +3,7 @@ import { html, LitElement } from 'lit-element';
 import { BbvaCoreIntlMixin as intl } from '@bbva-web-components/bbva-core-intl-mixin';
 
 import '../../elements/UI/simple-greeting.js';
-
+import '../../elements/UI/list-pokemon.js';
 import '@cells-demo/demo-web-template/demo-web-template.js';
 
 
@@ -15,21 +15,9 @@ class PokemonPage extends intl(cellsPage(LitElement)) {
   constructor() {
     super();
     this.nombre = 'Pokemones';
-    this.pokemones = [];
-    this.makeRequest();
-  }
-
-  makeRequest() {
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-      .then((response)=> response.json())
-      .then((data)=>this.renderPokemons(data.results));
-  }
-  renderPokemons(pokemones) {
-    console.log(pokemones[0].name);
-    this.pokemones = pokemones; // Almacena los Pokémones obtenidos
-    this.requestUpdate(); // Solicita una actualización de la interfaz
 
   }
+
 
   render() {
 
@@ -38,11 +26,10 @@ class PokemonPage extends intl(cellsPage(LitElement)) {
 
       <div slot="app-main-content">
         <h1> ${this.nombre}</h1>
+        <simple-greeting></simple-greeting> 
         <p>Lista de Pokémones:</p>
-        <ul>
-          ${this.pokemones.map((pokemon) => html`<li>${pokemon.name}</li>`)}
-        </ul>
-         <simple-greeting></simple-greeting> 
+
+        <list-pokemon></list-pokemon>
         
       </div">
 

@@ -8,11 +8,11 @@ export class SimpleGreeting extends LitElement {
 
   constructor() {
     super();
-    this.name = 'Somebody';
+    this.name = 'Escoja a su Pokemon favorito';
   }
 
   render() {
-    return html`<p>Hello, ${this.name}!</p>`;
+    return html`<p>${this.name}!</p>`;
   }
 }
 customElements.define(SimpleGreeting.is, SimpleGreeting);

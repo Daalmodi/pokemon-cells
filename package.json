@@ -66,5 +66,6 @@
   },
   "devDependencies": {
     "@cells/cells-component-core": "^3.2.0"
-  }
+  },
+  "customElements": "custom-elements.json"
 }
