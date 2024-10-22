@@ -28,6 +28,10 @@ export const NAVIGATION = [{
 },{
   path: '/pokemon',
   page: 'pokemon',
+},
+{
+  path: '/evolution',
+  page: 'evolution',
 }
 ];
 

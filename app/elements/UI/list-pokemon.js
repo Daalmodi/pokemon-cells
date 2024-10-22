@@ -16,7 +16,7 @@ export class GetListPokemon extends LitElement {
 
   makeRequest() {
 
-    for (let index = 1; index <= 31; index++) {
+    for (let index = 1; index <= 50; index++) {
 
 
       fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
