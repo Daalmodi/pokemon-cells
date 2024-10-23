@@ -1,19 +1,29 @@
 import { html, LitElement } from 'lit-element';
-export class GetEvolutionPokemon extends LitElement {
+import '@bbva-web-components/bbva-web-panel-outstanding-opportunity/bbva-web-panel-outstanding-opportunity.js';
+import { CellsPageMixin as cellsPage } from '@cells/cells-page-mixin';
+import { BbvaCoreIntlMixin as intl } from '@bbva-web-components/bbva-core-intl-mixin';
+export class GetEvolutionPokemon extends intl(cellsPage(LitElement)) {
   static get is() {
     return 'evolution-pokemon';
   }
 
   constructor() {
     super();
-    this.pokemones = [];
-    this.pokemonId = 5;
+    this.pokemoEvolutions = [];
+    this.evolution = [];
+
+    this.pokemonId = parseInt(this.getCurrentRoute().params.id);
     this.getSpecies();
     this.urlEvolutionChain = null;
+    this.datos = [];
+    this.ids = [];
+    this.obtenerinfo();
 
   }
 
+
   getSpecies() {
+
 
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.pokemonId}`)
       .then((response)=> response.json())
@@ -33,8 +43,7 @@ export class GetEvolutionPokemon extends LitElement {
   }
 
   pokemonRenders(pokemones) {
-    const datos = [];
-    const ids = [];
+
     const chain = pokemones.chain;
     const queue = [ chain ];
 
@@ -42,21 +51,57 @@ export class GetEvolutionPokemon extends LitElement {
       const species = queue.shift();
       const urlParts = species.species.url.split('/');
       const id = parseInt(urlParts[urlParts.length - 2]);
-      datos.push({ nombre: species.species.name, url: species.species.url });
-      ids.push(id);
+      this.datos.push({ nombre: species.species.name, url: species.species.url });
+      this.ids.push(id);
       if (species.evolves_to) {
         queue.push(...species.evolves_to);
       }
     }
 
-    console.log(datos);
-    console.log(ids);
+    this.getEvolution();
 
   }
+
+  getEvolution() {
+
+    this.ids.forEach((id) => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then((response) => response.json())
+        .then((data) => this.renderPokemons(data));
+    });
+
+  }
+
+
+  renderPokemons(pokemon) {
+
+    this.pokemoEvolutions = [...this.pokemoEvolutions, pokemon];
+    this.requestUpdate();
+
+  }
+
+  obtenerinfo() {
+
+
+  }
+
   render() {
     return html`
 
-        <h1>Funciona</h1>
+    <div>
+      ${this.pokemoEvolutions.map((pokemon) => html`
+        <bbva-web-panel-outstanding-opportunity-item
+          heading=${pokemon.name}
+          heading-icon=""
+          link="Link"
+          slot="main"
+          bg-img=${pokemon.sprites.other.dream_world.front_default}
+        >
+           Tipos : ${pokemon.types.map((type) => html` ${type.type.name} `)}
+        </bbva-web-panel-outstanding-opportunity-item>
+      `)}
+    </div>
+
       `;
   }
 

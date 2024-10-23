@@ -7,10 +7,7 @@ import {
 /*
  * NOTE: "path" field has to be unique, if not it will use the 1st match
  */
-export const NAVIGATION = [{
-  path: '/',
-  page: 'login',
-}, {
+export const NAVIGATION = [ {
     path: '/dashboard',
     page: 'dashboard',
     menuText: 'dashboard',
@@ -26,7 +23,7 @@ export const NAVIGATION = [{
     menuText: 'settings',
     menuIcon: bbvaSettings,
 },{
-  path: '/pokemon',
+  path: '/',
   page: 'pokemon',
 },
 {

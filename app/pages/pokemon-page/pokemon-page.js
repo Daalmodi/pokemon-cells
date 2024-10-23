@@ -5,7 +5,7 @@ import { BbvaCoreIntlMixin as intl } from '@bbva-web-components/bbva-core-intl-m
 import '../../elements/UI/simple-greeting.js';
 import '../../elements/UI/list-pokemon.js';
 import '@cells-demo/demo-web-template/demo-web-template.js';
-
+import '@bbva-web-components/prueba-app';
 
 class PokemonPage extends intl(cellsPage(LitElement)) {
   static get is() {
@@ -18,7 +18,11 @@ class PokemonPage extends intl(cellsPage(LitElement)) {
 
   }
 
+  onPageEnter() {
+    console.log('Entro');
 
+
+  }
   render() {
 
     return html`

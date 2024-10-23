@@ -1,7 +1,7 @@
 import { CellsPageMixin as cellsPage } from '@cells/cells-page-mixin';
 import { html, LitElement } from 'lit-element';
 import { BbvaCoreIntlMixin as intl } from '@bbva-web-components/bbva-core-intl-mixin';
-
+import '@bbva-web-components/bbva-web-button-default/bbva-web-button-default.js';
 import '@cells-demo/demo-web-template/demo-web-template.js';
 import '../../elements/UI/evolution-pokemon.js';
 class Evolutionpage extends intl(cellsPage(LitElement)) {
@@ -23,10 +23,20 @@ class Evolutionpage extends intl(cellsPage(LitElement)) {
 
             <h1> Evolution page works</h1>
             <evolution-pokemon></evolution-pokemon>
+          <bbva-web-button-default
+            @click="${this.backStep()}"
+            > Volver </bbva-web-button-default>
         </div>
+
        </demo-web-template ">
-       
+
        `;
+  }
+
+  returnPage() {
+    console.log('Regresar');
+    this.backStep();
+
   }
 }
 window.customElements.define(Evolutionpage.is, Evolutionpage);
