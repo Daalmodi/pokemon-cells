@@ -7,6 +7,7 @@ export class GetEvolutionPokemon extends intl(cellsPage(LitElement)) {
     return 'evolution-pokemon';
   }
 
+
   constructor() {
     super();
     this.pokemoEvolutions = [];
@@ -17,7 +18,7 @@ export class GetEvolutionPokemon extends intl(cellsPage(LitElement)) {
     this.urlEvolutionChain = null;
     this.datos = [];
     this.ids = [];
-    this.obtenerinfo();
+
 
   }
 
@@ -80,10 +81,6 @@ export class GetEvolutionPokemon extends intl(cellsPage(LitElement)) {
 
   }
 
-  obtenerinfo() {
-
-
-  }
 
   render() {
     return html`

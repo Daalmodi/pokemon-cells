@@ -18,11 +18,6 @@ class PokemonPage extends intl(cellsPage(LitElement)) {
 
   }
 
-  onPageEnter() {
-    console.log('Entro');
-
-
-  }
   render() {
 
     return html`

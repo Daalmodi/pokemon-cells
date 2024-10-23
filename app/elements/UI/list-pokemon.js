@@ -21,14 +21,6 @@ export class GetListPokemon extends intl(cellsPage(LitElement)) {
   }
 
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.pokemones = [];
-    this.type = [];
-    this.id = {};
-    this.selectedId = null;
-    this.makeRequest();
-  }
   makeRequest() {
 
     for (let index = 1; index <= 8; index++) {
@@ -82,7 +74,7 @@ export class GetListPokemon extends intl(cellsPage(LitElement)) {
   handleButtonClick(id) {
 
     this.navigate('evolution', { id });
-    this.connectedCallback();
+
 
   }
 }

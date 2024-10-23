@@ -24,7 +24,7 @@ class Evolutionpage extends intl(cellsPage(LitElement)) {
             <h1> Evolution page works</h1>
             <evolution-pokemon></evolution-pokemon>
           <bbva-web-button-default
-            @click="${this.backStep()}"
+            @click="${this.returnPage}"
             > Volver </bbva-web-button-default>
         </div>
 
@@ -33,9 +33,11 @@ class Evolutionpage extends intl(cellsPage(LitElement)) {
        `;
   }
 
+
   returnPage() {
     console.log('Regresar');
-    this.backStep();
+    this.navigate('pokemon');
+    window.location.reload();
 
   }
 }
